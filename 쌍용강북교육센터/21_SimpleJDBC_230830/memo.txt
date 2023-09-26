@@ -1,0 +1,29 @@
+C:\Oracle\product\12.2.0\dbhome_1\jdbc\lib\ojdbc8.jar
+
+프로젝트 - 우클릭 - properties - build path의 library 탭 - classPath 찍고
+- add external jars 누르고 - 위에 경로 찍는다.
+
+drop table test;
+drop function test;
+create table test(
+	num number,
+	name varchar2(10),
+	addr varchar2(10)
+);
+
+[JDBC 프로그래밍 단계]
+0. jar파일 가져오기
+1. 드라이버 로드 : Class.forName~
+2. 계정에 접속 : DriverManager.getConnection(,,)
+3. sql문 분석 : prepareStatement()
+	3-1. ? 값 채우기
+4. 분석한 sql문 실행 : executeUpdate(), executeQuery()
+5. 접속끊기 : close()
+
+
+[SQL Exception이 발생하는 경우]
+getConnection(): url, user, pw 셋 중 하나라도 오타가 있을 경우
+close()
+prepareStatement(): sql문에 오타가 있을 경우
+executeUpdate()
+setInt(), setString()
