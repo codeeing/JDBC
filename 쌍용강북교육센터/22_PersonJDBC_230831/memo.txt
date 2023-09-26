@@ -1,0 +1,25 @@
+drop sequence perseq;
+
+create sequence perseq; --  여기까지 쓰면 1씩 증가하면서, 1부터 시작해서 무한대로 증가함
+	
+	increment by 1
+	start with 1;
+	
+drop table person cascade constraints;
+create table person(
+	num number primary key,
+	name varchar2(20),
+	age number,
+	gender varchar2(10),
+	birth date default sysdate
+);
+
+DTO (Data Transfer Object) => PersonBean.java, 편의상 빈클래스파일이라고 부름
+- 데이터를 담을 private 변수와 setter, getter 메서드로 구성된다.
+- 데이터의 전달을 위해 만들어진 객체
+- bean 또는 VO(Value Object)라고 부르기도 한다.
+
+DAO (Date Access Object) => PersonDao.java, 편의상 다오클래스파일이라고 부름
+- DB를 사용해 데이터를 조회하거나 조작하는 기능을 하기 위해 만든 오브젝트
+- DB와의 연결을 담당하는 객체
+
